@@ -1,0 +1,71 @@
+<!-- myapp/templates/myapp/feature_enhancements.html -->
+{% extends 'movieApp/base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row" style="flex-wrap: nowrap; height: 90vh; overflow-y: hidden;">
+            <div class="col" style="width: 50%; height: inherit;">
+                <p>Here is the list of movies:</p>
+            </div>
+
+            <div class="col" style="width: 50%; height: inherit; overflow-y: hidden;">
+                <div class="row" style="height: min-content;">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Genre Filter</h5>
+                            <p style="font-size: 14px;">Select genres you wish to include in the movie recommendation</p>
+                            <div>
+                                <form id="genreFilterForm">
+                                    {% for genre in unique_genres %}
+                                        <div class="form-check-inline">
+                                            <input type="checkbox" class="form-check-input" id="unique_genres{{ genre }}" name="unique_genres" value="{{ genre }}" checked>
+                                            <label class="form-check-label" for="unique_genres{{ genre }}">{{ genre }}</label>
+                                        </div>
+                                    {% endfor %}
+                                </form>
+                            </div>
+                            <button type="button" onclick="applyFilter()" class="btn btn-primary mt-3">Apply Filter</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="overflow: scroll; height: inherit;">
+                    <ul class="list-group" id="movieList">
+                        {% for movie in movies %}
+                            <li class="list-group-item" style="color: black;">
+                                <strong>{{ movie.title }}</strong><br>
+                                {% for genre in movie.genres.all %}
+                                    {{ genre.name }}{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function applyFilter() {
+            var selectedGenres = Array.from(document.querySelectorAll('input[name="unique_genres"]:checked')).map(function (checkbox) {
+                return checkbox.value;
+            });
+
+            var movieItems = document.querySelectorAll('.list-group-item');
+
+            movieItems.forEach(function (movie) {
+                var movieGenres = Array.from(movie.querySelectorAll('.genre')).map(function (span) {
+                    return span.textContent.trim();
+                });
+
+                var hasSelectedGenre = selectedGenres.some(function (genre) {
+                    return movieGenres.includes(genre);
+                });
+
+                movie.style.color = hasSelectedGenre ? 'green' : 'black';
+                if (hasSelectedGenre) {
+                    console.log('Checked Movie:', movie.textContent.trim());
+                }
+            });
+        }
+    </script>
+{% endblock %}

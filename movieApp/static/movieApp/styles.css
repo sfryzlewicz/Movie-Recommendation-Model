@@ -1,0 +1,21 @@
+.badge-action { background-color: #ff0000;color: white} /* Blue */
+.badge-animation { background-color: #ff7b00; } 
+.badge-adventure { background-color: #6fff00; } 
+.badge-animation { background-color: #4af472; } /* Green */
+.badge-comedy { background-color: #05b205; } /* Cyan */
+.badge-crime { background-color: #96f2c6; } 
+.badge-children { background-color: #78a7ec; } 
+.badge-drama { background-color: #ffc107; } /* Yellow */
+.badge-documentary { background-color: #d3b9ee; } 
+.badge-fantasy { background-color: #59b3f4; } 
+.badge-fantasy { background-color: #cc10f2; color: white} /* Purple */
+.badge-film-noir { background-color: #2b0469;color: white} 
+.badge-horror { background-color: #00eeff; } 
+.badge-imax { background-color: #683fee; color: white} 
+.badge-mystery { background-color: #907953;color: white } 
+.badge-musical { background-color: #8800ff; color: white} 
+.badge-romance { background-color: #efafcd; } /* Pink */
+.badge-sci-fi { background-color: #fd7e14; } /* Orange */
+.badge-thriller { background-color: #ff0088; color: white} 
+.badge-western { background-color: #ffdd6e; } 
+.badge-war { background-color: #c6f280; } 

@@ -1,0 +1,21 @@
+<!-- myapp/templates/myapp/movie_list.html -->
+{% extends 'movieApp/base.html' %}
+
+{% block content %}
+<div>
+    <a href="{% url 'feature_enhancements' %}" class="btn btn-primary float-right mt-3">Recommendation Engine</a>
+    <h2 class="mb-4">Welcome, {{ username }} to the Data Display Page!</h2>
+    <p>This is the raw movie data we will be working with! Both the title and genre(s) of each movie is listed below.</p>
+    <p>Here is the list of movies:</p>
+    <ul class="list-group">
+        {% for movie in movies %}
+            <li class="list-group-item">
+                {{ movie.title }} -
+                {% for genre in movie.genres %}
+                    <span class="badge badge-{{ genre|lower }}">{{ genre }}</span>
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
