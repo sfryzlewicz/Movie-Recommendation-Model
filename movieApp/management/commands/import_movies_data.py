@@ -28,7 +28,7 @@ class Command(BaseCommand):
                 genres_list = genres_str.split('|')
 
                 match = re.search(r'\((\d{4})\)$', title)
-                year = match.group(1) if match else None
+                #year = match.group(1) if match else None
 
                 # Save to the database
                 Movie.objects.create(movieId=movie_id, title=title, genres=genres_list)

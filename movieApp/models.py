@@ -11,8 +11,8 @@ class CustomUser(AbstractUser):
 class Movie(models.Model):
     movieId = models.IntegerField(primary_key=True)
     title = models.CharField(max_length=255)
-    genres = models.ManyToManyField('genres')
-    year = models.IntegerField(null=True, blank=True)
+    genres = models.CharField(max_length=255)
+    #year = models.IntegerField(null=True, blank=True)
 
 class Genres(models.Model):
     name = models.CharField(max_length=255, unique=True)

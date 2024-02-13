@@ -64,11 +64,11 @@ def feature_enhancements(request):
     #unique_genres = set(genre for movie in movies for genre in movie.objects)
 
     # Create a context dictionary
-    context = {
-        'movies': movies,
-        'unique_genres': unique_genres,
-    }
-    print("CONTEXT", context, " CONTEXTTTTTTTTT")
+    #context = {
+      #  'movies': movies,
+     #   'unique_genres': unique_genres,
+    #}
+    #print("CONTEXT", context, " CONTEXTTTTTTTTT")
 
     return render(request, 'myapp/feature_enhancements.html', movies)
     
